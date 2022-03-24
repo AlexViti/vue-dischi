@@ -1,28 +1,25 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="text-white">
+    <header-disk />
+    <main-disk />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import HeaderDisk from './components/HeaderDisk.vue';
+import MainDisk from './components/MainDisk.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    HeaderDisk,
+    MainDisk,
   },
 };
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import './assets/styles/_variables.scss';
+@import '~bootstrap/scss/bootstrap.scss';
 </style>
