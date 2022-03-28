@@ -4,7 +4,7 @@
       :src="disk.poster"
       :alt="disk.title"
     />
-    <h2 class="text-uppercase">{{ disk.title }}</h2>
+    <h2 class="text-uppercase mt-2">{{ disk.title }}</h2>
     <div class="text-secondary fs-3 mt-auto">{{ disk.author }}</div>
     <div class="text-secondary fs-3">{{ disk.year }}</div>
   </div>
