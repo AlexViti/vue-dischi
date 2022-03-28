@@ -1,15 +1,14 @@
 <template>
-  <main class="container">
-    <div class="row row-cols-5">
-      <div class="col" v-for="(disk, index) in disks" :key='index'>
-        <card-disk :disk-data="disk" />
+  <main class="container py-5">
+    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-5">
+      <div class="col" v-for="(disk, index) in filteredDisks" :key='index'>
+        <card-disk :disk="disk" />
       </div>
     </div>
   </main>
 </template>
 
 <script>
-import axios from 'axios';
 import CardDisk from './CardDisk.vue';
 
 export default {
@@ -17,15 +16,16 @@ export default {
   components: {
     CardDisk,
   },
-  data() {
-    return {
-      disks: null,
-    };
+  computed: {
+    filteredDisks() {
+      // eslint-disable-next-line max-len
+      return this.disks.filter((disk) => disk.genre.includes(this.selectedGenre) && disk.author.toLowerCase().includes(this.authorSearch));
+    },
   },
-  created() {
-    axios.get('https://flynn.boolean.careers/exercises/api/array/music')
-      .then((res) => { this.disks = res.data.response; })
-      .catch(() => { console.log('error'); });
+  props: {
+    disks: Array,
+    selectedGenre: String,
+    authorSearch: String,
   },
 };
 </script>
