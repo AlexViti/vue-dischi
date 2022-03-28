@@ -19,7 +19,7 @@ export default {
   computed: {
     filteredDisks() {
       // eslint-disable-next-line max-len
-      return this.disks.filter((disk) => disk.genre.includes(this.selectedGenre) && disk.author.toLowerCase().includes(this.authorSearch));
+      return this.disks.filter((disk) => (this.selectedGenre === '' ? disk : disk.genre === this.selectedGenre) && disk.author.toLowerCase().includes(this.authorSearch));
     },
   },
   props: {
